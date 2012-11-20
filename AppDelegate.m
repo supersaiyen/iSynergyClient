@@ -33,6 +33,7 @@
 #import "mouse_msgs.h"
 #import "ConfigurationViewController.h"
 #import "SynergyClient.h"
+#import "BackgroundApplication.h"
 
 #define VERSION "0.8"
 
@@ -91,6 +92,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application{
 	[configViewController updateDefaultsFromView];
+    [BackgroundApplication setRunInBackground:NO];
+    [self.synergyClient deactivateMouse];
 }
 
 - (void)dealloc {
