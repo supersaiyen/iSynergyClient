@@ -35,6 +35,7 @@
  */
 
 #include "mouse_msgs.h"
+#import "AppDelegate.h"
 
 #include <strings.h>
 
@@ -52,7 +53,7 @@ int mouseOpen()
     if (mouseMessagePort) {
         BOOL enabled = YES;
         NSData *data = [NSData dataWithBytes:(void *)&enabled length:sizeof(BOOL)];
-        CFMessagePortSendRequest(mouseMessagePort, MouseMessageTypeSetEnabled, (CFDataRef)data, 1, 0, NULL, NULL);
+        CFMessagePortSendRequest(mouseMessagePort, MouseMessageTypeSetEnabled, (__bridge CFDataRef)data, 1, 0, NULL, NULL);
     }
 
 	return (mouseMessagePort == NULL) ? kCFMessagePortIsInvalid : kCFMessagePortSuccess;
@@ -64,7 +65,7 @@ void mouseClose()
         // Tell SpringBoard to disable the mouse pointer
         BOOL enabled = NO;
         NSData *data = [NSData dataWithBytes:(void *)&enabled length:sizeof(BOOL)];
-        CFMessagePortSendRequest(mouseMessagePort, MouseMessageTypeSetEnabled, (CFDataRef)data, 1, 0, NULL, NULL);
+        CFMessagePortSendRequest(mouseMessagePort, MouseMessageTypeSetEnabled, (__bridge CFDataRef)data, 1, 0, NULL, NULL);
 
         // Close the mach port connection
         CFMessagePortInvalidate(mouseMessagePort);
@@ -81,12 +82,14 @@ int mouseSendEvent(float x, float y, char buttons)
         // Create and send message
         MouseEvent event;
         
+        int orientation = [[AppDelegate sharedInstance] getOrientation];
+        
         //saiyen
         //Get orientation, if orientation is landscape, switch x and y optionally invert
         UIScreen *screen = [UIScreen mainScreen];
         CGRect fullScreenRect = screen.bounds; //implicitly in Portrait orientation.        
         
-        if (UIInterfaceOrientationIsLandscape([[UIDevice currentDevice] orientation])) 
+        if (UIInterfaceOrientationIsLandscape(orientation))
         {
             CGRect temp;
             temp.size.width = fullScreenRect.size.height;
@@ -94,13 +97,13 @@ int mouseSendEvent(float x, float y, char buttons)
             fullScreenRect = temp;      
         }
 
-        if (([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft)) {
+        if (orientation == UIDeviceOrientationLandscapeLeft) {
             event.x = fullScreenRect.size.height-y;
             event.y = x;
-        }else if(([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight)){
+        }else if(orientation == UIDeviceOrientationLandscapeRight){
             event.x = y;
             event.y = fullScreenRect.size.width-x;
-        }else if (([[UIDevice currentDevice] orientation] == UIDeviceOrientationPortraitUpsideDown)) {
+        }else if (orientation == UIDeviceOrientationPortraitUpsideDown) {
             event.x = fullScreenRect.size.width-x;
             event.y = fullScreenRect.size.height-y;
         }else{
@@ -113,7 +116,7 @@ int mouseSendEvent(float x, float y, char buttons)
         event.buttons = buttons;
 
         NSData *data = [NSData dataWithBytes:(void *)&event length:sizeof(MouseEvent)];
-        ret = CFMessagePortSendRequest(mouseMessagePort, MouseMessageTypeEvent, (CFDataRef)data, 1, 0, NULL, NULL);
+        ret = CFMessagePortSendRequest(mouseMessagePort, MouseMessageTypeEvent, (__bridge CFDataRef)data, 1, 0, NULL, NULL);
     }
 
     return ret;

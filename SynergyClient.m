@@ -99,7 +99,7 @@ static void socketDataCallback (CFSocketRef s,
 								const void *data,
 								void *info)
 {
-	SynergyClient * synergyClient = (SynergyClient *) info;
+	SynergyClient * synergyClient = (__bridge SynergyClient *) info;
     if (callbackType == kCFSocketReadCallBack) {
 		[synergyClient handleSocketCallback];
     }
@@ -444,7 +444,7 @@ static void socketDataCallback (CFSocketRef s,
 	// store reference to us in socket context
 	CFSocketContext socketContext;
 	bzero(&socketContext, sizeof(CFSocketContext));
-	socketContext.info = self;
+	socketContext.info = (__bridge void *)(self);
 	
 	// create CFSocket from file descriptor
 	CFSocketRef cfSocket = CFSocketCreateWithNative (kCFAllocatorDefault,
@@ -468,7 +468,7 @@ static void socketDataCallback (CFSocketRef s,
 - (void) activateMouse {
 	if (!mouseShown) {
 		mouseOpen();
-		// NSLog(@"Connection to mouse opened %i", ok);
+		NSLog(@"Connection to mouse opened");
 		mouseShown = YES;
 	}
 	
@@ -477,7 +477,7 @@ static void socketDataCallback (CFSocketRef s,
 - (void) deactivateMouse {
 	if (mouseShown) {
 		mouseClose();
-		// NSLog(@"Connection to mouse closed");
+		NSLog(@"Connection to mouse closed");
 		mouseShown = NO;
 	}
 }
@@ -676,21 +676,21 @@ static void socketDataCallback (CFSocketRef s,
 
 -(void) startOpeningConnection {
 
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	// NSLog(@"Start Connection");
-	if (clientState == STATE_NOT_CONNECTED){
-		// start connection
-		clientState = STATE_CONNECTING;
-		// NSLog(@"set clientState to connecting..");
-		[delegate performSelectorOnMainThread:@selector(connectionStateChanged) withObject:nil waitUntilDone:NO];
-		BOOL ok = [self openConnection:[self serverAddress]];
-		if (!ok){
-			clientState = STATE_NOT_CONNECTED;
-			[delegate performSelectorOnMainThread:@selector(connectionFailed) withObject:nil waitUntilDone:NO];
+		if (clientState == STATE_NOT_CONNECTED){
+			// start connection
+			clientState = STATE_CONNECTING;
+			// NSLog(@"set clientState to connecting..");
+			[delegate performSelectorOnMainThread:@selector(connectionStateChanged) withObject:nil waitUntilDone:NO];
+			BOOL ok = [self openConnection:[self serverAddress]];
+			if (!ok){
+				clientState = STATE_NOT_CONNECTED;
+				[delegate performSelectorOnMainThread:@selector(connectionFailed) withObject:nil waitUntilDone:NO];
+			}
+			[delegate performSelectorOnMainThread:@selector(connectionStateChanged) withObject:nil waitUntilDone:NO];
 		}
-		[delegate performSelectorOnMainThread:@selector(connectionStateChanged) withObject:nil waitUntilDone:NO];
 	}
-	[pool release];
 }
 
 -(void) stopConnection {

@@ -42,11 +42,11 @@
 	UIActivityIndicatorView *activityIndicator;
 }
 - (void) updateDefaultsFromView;
-@property (nonatomic, retain) SynergyClient * synergyClient;
-@property (nonatomic, retain) UITextField *serverAddress;
-@property (nonatomic, retain) UITextField *clientName;
-@property (nonatomic, retain) UISwitch *activeSwitch;
-@property (nonatomic, retain) UISwitch *homeButtonSwitch;
-@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) SynergyClient * synergyClient;
+@property (nonatomic, strong) UITextField *serverAddress;
+@property (nonatomic, strong) UITextField *clientName;
+@property (nonatomic, strong) UISwitch *activeSwitch;
+@property (nonatomic, strong) UISwitch *homeButtonSwitch;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, assign) BOOL autoConnectOnLoad;
 @end

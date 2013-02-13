@@ -67,7 +67,7 @@ typedef enum {
 	CLIENT_STATE clientState;
 	BOOL _enabled;
 	Point screenSize;
-	id delegate;
+	id __weak delegate;
 	
 	int screenWidth;
 	int screenHeight;
@@ -104,7 +104,7 @@ typedef enum {
 -(BOOL) homeButtonHotkey;
 -(void) setHomeButtonHotKey:(BOOL) homeButtonHotKey;
 -(CLIENT_STATE) clientState;
-@property (nonatomic, assign) id delegate;
-@property (nonatomic, retain) NSString *connectionError;
+@property (nonatomic, weak) id delegate;
+@property (nonatomic, strong) NSString *connectionError;
 
 @end

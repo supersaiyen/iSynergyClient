@@ -8,6 +8,13 @@
 	<string>SynergyClient</string>
 	<key>CFBundleExecutable</key>
 	<string>SynergyClient</string>
+	<key>CFBundleIconFile</key>
+	<string>Icon-57.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon-57.png</string>
+		<string>Icon-72.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>ch.ringwald.synergyclient</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -16,19 +23,25 @@
 	<string>ch.ringwald.synergyclient</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.9</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>ch.ringwald.synergy</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>synergy</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>CFBundleIconFile</key>
-	<string>Icon-57.png</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon-57.png</string>
-		<string>Icon-72.png</string>
-	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>continuous</string>

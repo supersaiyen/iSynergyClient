@@ -21,7 +21,7 @@
 @implementation BackgroundApplication
 
 -(id) init {
-	[super init];
+	if (!(self = [super init])) return nil;
 	runInBackground = NO;
 	return self;
 }

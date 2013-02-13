@@ -92,41 +92,6 @@ NSString *keyAutoConnect = @"AutoConnect";
     NSLog(@"viewWillDisappear...");
 }
 
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-/*
-*/
-
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
@@ -166,7 +131,7 @@ NSString *keyAutoConnect = @"AutoConnect";
 	// Configure the cell...
 	int inset = 7;
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 
 		UITextField * textField;
 		if ([indexPath row] == 0){
@@ -388,15 +353,6 @@ NSString *keyAutoConnect = @"AutoConnect";
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-	[synergyClient release];
-	[serverAddress release];
-	[clientName release];
-	[activeSwitch release];
-	[activityIndicator release];
-    [homeButtonSwitch release];
-}
 
 @end
 

@@ -38,13 +38,18 @@
     UIWindow *window;
 	ConfigurationViewController *configViewController;
 	UINavigationController *navController;
-	SynergyClient * synergyClient;
+	SynergyClient * synergyClient;    
+    int _orientation;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) UINavigationController *navController;
-@property (nonatomic, retain) ConfigurationViewController *configViewController;
-@property (nonatomic, retain) SynergyClient * synergyClient;
++ (AppDelegate *)sharedInstance;
+- (int)getOrientation;
+
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) UINavigationController *navController;
+@property (nonatomic, strong) ConfigurationViewController *configViewController;
+@property (nonatomic, strong) SynergyClient * synergyClient;
+
 
 @end
 

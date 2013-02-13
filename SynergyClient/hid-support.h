@@ -114,10 +114,9 @@ enum {
     NSHelpFunctionKey           = 0xF746,
     NSModeSwitchFunctionKey     = 0xF747,
     
-    // north-added
+    // North-added for Synergy
     NSBackspaceKey              = 8,
     NSCarriageReturnKey         = 13,
-    
     
     // hid-support special
     NSBeginOfLineFunctionKey    = 0xf780,
@@ -157,6 +156,24 @@ typedef enum hid_key_modifier {
 	CTRL  = 0x04,
 	SHIFT = 0x08
 } hid_key_modifier_t;
+    
+/*
+ typedef enum __GSHandInfoType {
+ kGSHandInfoTypeTouchDown = 0,
+ kGSHandInfoTypeTouchDragged = 1,
+ kGSHandInfoTypeTouchMoved = 4,
+ kGSHandInfoTypeTouchUp = 5,
+ kGSHandInfoTypeCancel = 8
+ } GSHandInfoType;
+*/
+    
+typedef enum hid_touch_type {
+    TOUCH_DOWN = 1,
+    TOUCH_DRAGGED = 2,
+    TOUCH_UP = 6
+    //TOUCH_CHANGE = 5,
+    //TOUCH_FINAL = 6
+} hid_touch_type_t;
 
 int hid_inject_text(const char * utf8_text);
 
@@ -173,10 +190,11 @@ int hid_inject_gseventrecord(uint8_t *event_record);
 
 int hid_get_screen_dimension(int *width, int *height);
 
-// not implemented yet
 int hid_inject_mouse_keep_alive();
 int hid_inject_mouse_rel_move(uint8_t buttons, float dx, float dy);
 int hid_inject_mouse_abs_move(uint8_t buttons, float ax, float ay);
+    
+int hid_inject_touch(hid_touch_type_t touch_type, int index, float x, float y);
 
 // not implemented yet
 int hid_inject_accelerometer(float x, float y, float z);

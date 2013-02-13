@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71519C451658481F007A32ED /* libhidsupport.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 71519C431658480F007A32ED /* libhidsupport.dylib */; };
+		710EDE4016C037D20055E48C /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710EDE3F16C037D20055E48C /* AppSupport.framework */; };
+		71255EF516C0326600353319 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71255EF416C0326600353319 /* Foundation.framework */; };
+		71255EF716C0326B00353319 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71255EF616C0326B00353319 /* UIKit.framework */; };
+		71255EF916C0327000353319 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71255EF816C0327000353319 /* CoreGraphics.framework */; };
 		7173F169164F676900F2350A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7173F143164F669300F2350A /* main.m */; };
 		7173F205164F6AF000F2350A /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7173F202164F6AF000F2350A /* Icon-57.png */; };
 		7173F206164F6AF000F2350A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7173F203164F6AF000F2350A /* Icon-72.png */; };
@@ -16,14 +19,16 @@
 		7173F20A164F6B4E00F2350A /* mouse_msgs.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7173F145164F669300F2350A /* mouse_msgs.mm */; };
 		7173F20B164F6B5500F2350A /* BackgroundApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7173F136164F669300F2350A /* BackgroundApplication.m */; };
 		7173F20C164F6D1400F2350A /* SynergyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7173F147164F669300F2350A /* SynergyClient.m */; };
-		71D2A076164F98AD00AF06E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7173F1FF164F6A8C00F2350A /* CoreGraphics.framework */; };
-		71D2A077164F98BC00AF06E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7173F1FB164F6A7F00F2350A /* UIKit.framework */; };
-		71F80C3A165B6189000546F0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71F80C39165B6189000546F0 /* Settings.bundle */; };
+		718EAEDB16C773F20034B963 /* libhidsupport.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 718EAEDA16C773F20034B963 /* libhidsupport.dylib */; };
+		71EA015D16C4C16C00FFF797 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71EA015C16C4C16C00FFF797 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		71519C431658480F007A32ED /* libhidsupport.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libhidsupport.dylib; sourceTree = "<group>"; };
-		715A316A1655B2A7004D3D84 /* hid-support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "hid-support.h"; sourceTree = "<group>"; };
+		710EDE3F16C037D20055E48C /* AppSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppSupport.framework; path = System/Library/PrivateFrameworks/AppSupport.framework; sourceTree = SDKROOT; };
+		71255EF416C0326600353319 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		71255EF616C0326B00353319 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		71255EF816C0327000353319 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7127829F1688DD8A004B13D4 /* hid-support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "hid-support.h"; sourceTree = "<group>"; };
 		7173F133164F669300F2350A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
 		7173F134164F669300F2350A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		7173F135164F669300F2350A /* BackgroundApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundApplication.h; sourceTree = "<group>"; };
@@ -36,12 +41,44 @@
 		7173F146164F669300F2350A /* SynergyClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynergyClient.h; sourceTree = SOURCE_ROOT; };
 		7173F147164F669300F2350A /* SynergyClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynergyClient.m; sourceTree = SOURCE_ROOT; };
 		7173F14F164F671B00F2350A /* SynergyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SynergyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7173F1FB164F6A7F00F2350A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		7173F1FD164F6A8500F2350A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7173F1FF164F6A8C00F2350A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		7173F202164F6AF000F2350A /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		7173F203164F6AF000F2350A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		7173F204164F6AF000F2350A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		718EAEDA16C773F20034B963 /* libhidsupport.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libhidsupport.dylib; sourceTree = "<group>"; };
+		718EEFE416826F260063D540 /* _CPPowerAssertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPPowerAssertion.h; sourceTree = "<group>"; };
+		718EEFE516826F260063D540 /* _CPPowerAssertionThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPPowerAssertionThread.h; sourceTree = "<group>"; };
+		718EEFE616826F260063D540 /* _ReachabilityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReachabilityRequest.h; sourceTree = "<group>"; };
+		718EEFE716826F260063D540 /* AppSupport-Structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppSupport-Structs.h"; sourceTree = "<group>"; };
+		718EEFE816826F260063D540 /* AppSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSupport.h; sourceTree = "<group>"; };
+		718EEFE916826F260063D540 /* CapturedInvocationTrampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturedInvocationTrampoline.h; sourceTree = "<group>"; };
+		718EEFEA16826F260063D540 /* CPAggregateDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPAggregateDictionary.h; sourceTree = "<group>"; };
+		718EEFEB16826F260063D540 /* CPCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCity.h; sourceTree = "<group>"; };
+		718EEFEC16826F260063D540 /* CPDistributedMessagingAsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingAsyncOperation.h; sourceTree = "<group>"; };
+		718EEFED16826F260063D540 /* CPDistributedMessagingCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingCallout.h; sourceTree = "<group>"; };
+		718EEFEE16826F260063D540 /* CPDistributedMessagingCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingCenter.h; sourceTree = "<group>"; };
+		718EEFEF16826F260063D540 /* CPDistributedNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDistributedNotificationCenter.h; sourceTree = "<group>"; };
+		718EEFF016826F260063D540 /* CPExclusiveLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPExclusiveLock.h; sourceTree = "<group>"; };
+		718EEFF116826F260063D540 /* CPFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFS.h; sourceTree = "<group>"; };
+		718EEFF216826F260063D540 /* CPLRUDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLRUDictionary.h; sourceTree = "<group>"; };
+		718EEFF316826F260063D540 /* CPLRUDictionaryNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLRUDictionaryNode.h; sourceTree = "<group>"; };
+		718EEFF416826F260063D540 /* CPMIGServerSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMIGServerSource.h; sourceTree = "<group>"; };
+		718EEFF516826F260063D540 /* CPNetworkObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNetworkObserver.h; sourceTree = "<group>"; };
+		718EEFF616826F260063D540 /* CPPhoneNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPhoneNumber.h; sourceTree = "<group>"; };
+		718EEFF716826F260063D540 /* CPRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPRecord.h; sourceTree = "<group>"; };
+		718EEFF816826F260063D540 /* CPRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPRegularExpression.h; sourceTree = "<group>"; };
+		718EEFF916826F260063D540 /* CPSearchMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSearchMatcher.h; sourceTree = "<group>"; };
+		718EEFFA16826F260063D540 /* CPSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSqlite.h; sourceTree = "<group>"; };
+		718EEFFB16826F260063D540 /* DelayedInvocationTrampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayedInvocationTrampoline.h; sourceTree = "<group>"; };
+		718EEFFC16826F260063D540 /* InvocationTrampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvocationTrampoline.h; sourceTree = "<group>"; };
+		718EEFFD16826F260063D540 /* NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCoding.h; sourceTree = "<group>"; };
+		718EEFFE16826F260063D540 /* NSCopying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCopying.h; sourceTree = "<group>"; };
+		718EEFFF16826F260063D540 /* NSLocking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSLocking.h; sourceTree = "<group>"; };
+		718EF00016826F260063D540 /* NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
+		718EF00116826F260063D540 /* OperationQueueInvocationTrampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationQueueInvocationTrampoline.h; sourceTree = "<group>"; };
+		718EF00216826F260063D540 /* PEPServiceConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEPServiceConfiguration.h; sourceTree = "<group>"; };
+		718EF00316826F260063D540 /* ThreadedInvocationTrampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadedInvocationTrampoline.h; sourceTree = "<group>"; };
+		71907DB216C9DD8300AE4F83 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		71EA015C16C4C16C00FFF797 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		71F80C39165B6189000546F0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,9 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71D2A077164F98BC00AF06E5 /* UIKit.framework in Frameworks */,
-				71D2A076164F98AD00AF06E5 /* CoreGraphics.framework in Frameworks */,
-				71519C451658481F007A32ED /* libhidsupport.dylib in Frameworks */,
+				710EDE4016C037D20055E48C /* AppSupport.framework in Frameworks */,
+				71255EF916C0327000353319 /* CoreGraphics.framework in Frameworks */,
+				71255EF716C0326B00353319 /* UIKit.framework in Frameworks */,
+				71255EF516C0326600353319 /* Foundation.framework in Frameworks */,
+				718EAEDB16C773F20034B963 /* libhidsupport.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +103,7 @@
 			children = (
 				7173F1F7164F6A3200F2350A /* Utilities */,
 				7173F159164F671B00F2350A /* SynergyClient */,
+				71907DAF16C9DD8300AE4F83 /* layout */,
 				7173F201164F6AF000F2350A /* Resources */,
 				7173F152164F671B00F2350A /* Frameworks */,
 				7173F150164F671B00F2350A /* Products */,
@@ -81,9 +121,10 @@
 		7173F152164F671B00F2350A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7173F1FF164F6A8C00F2350A /* CoreGraphics.framework */,
-				7173F1FD164F6A8500F2350A /* Foundation.framework */,
-				7173F1FB164F6A7F00F2350A /* UIKit.framework */,
+				710EDE3F16C037D20055E48C /* AppSupport.framework */,
+				71255EF816C0327000353319 /* CoreGraphics.framework */,
+				71255EF616C0326B00353319 /* UIKit.framework */,
+				71255EF416C0326600353319 /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,7 +132,7 @@
 		7173F159164F671B00F2350A /* SynergyClient */ = {
 			isa = PBXGroup;
 			children = (
-				715A316A1655B2A7004D3D84 /* hid-support.h */,
+				7127829F1688DD8A004B13D4 /* hid-support.h */,
 				7173F133164F669300F2350A /* AppDelegate.h */,
 				7173F134164F669300F2350A /* AppDelegate.m */,
 				7173F137164F669300F2350A /* ConfigurationViewController.h */,
@@ -118,6 +159,7 @@
 			children = (
 				7173F135164F669300F2350A /* BackgroundApplication.h */,
 				7173F136164F669300F2350A /* BackgroundApplication.m */,
+				718EEFE316826F260063D540 /* AppSupport */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -125,13 +167,77 @@
 		7173F201164F6AF000F2350A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				718EAEDA16C773F20034B963 /* libhidsupport.dylib */,
 				71F80C39165B6189000546F0 /* Settings.bundle */,
-				71519C431658480F007A32ED /* libhidsupport.dylib */,
+				71EA015C16C4C16C00FFF797 /* Default-568h@2x.png */,
 				7173F202164F6AF000F2350A /* Icon-57.png */,
 				7173F203164F6AF000F2350A /* Icon-72.png */,
 				7173F204164F6AF000F2350A /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		718EEFE316826F260063D540 /* AppSupport */ = {
+			isa = PBXGroup;
+			children = (
+				718EEFE416826F260063D540 /* _CPPowerAssertion.h */,
+				718EEFE516826F260063D540 /* _CPPowerAssertionThread.h */,
+				718EEFE616826F260063D540 /* _ReachabilityRequest.h */,
+				718EEFE716826F260063D540 /* AppSupport-Structs.h */,
+				718EEFE816826F260063D540 /* AppSupport.h */,
+				718EEFE916826F260063D540 /* CapturedInvocationTrampoline.h */,
+				718EEFEA16826F260063D540 /* CPAggregateDictionary.h */,
+				718EEFEB16826F260063D540 /* CPCity.h */,
+				718EEFEC16826F260063D540 /* CPDistributedMessagingAsyncOperation.h */,
+				718EEFED16826F260063D540 /* CPDistributedMessagingCallout.h */,
+				718EEFEE16826F260063D540 /* CPDistributedMessagingCenter.h */,
+				718EEFEF16826F260063D540 /* CPDistributedNotificationCenter.h */,
+				718EEFF016826F260063D540 /* CPExclusiveLock.h */,
+				718EEFF116826F260063D540 /* CPFS.h */,
+				718EEFF216826F260063D540 /* CPLRUDictionary.h */,
+				718EEFF316826F260063D540 /* CPLRUDictionaryNode.h */,
+				718EEFF416826F260063D540 /* CPMIGServerSource.h */,
+				718EEFF516826F260063D540 /* CPNetworkObserver.h */,
+				718EEFF616826F260063D540 /* CPPhoneNumber.h */,
+				718EEFF716826F260063D540 /* CPRecord.h */,
+				718EEFF816826F260063D540 /* CPRegularExpression.h */,
+				718EEFF916826F260063D540 /* CPSearchMatcher.h */,
+				718EEFFA16826F260063D540 /* CPSqlite.h */,
+				718EEFFB16826F260063D540 /* DelayedInvocationTrampoline.h */,
+				718EEFFC16826F260063D540 /* InvocationTrampoline.h */,
+				718EEFFD16826F260063D540 /* NSCoding.h */,
+				718EEFFE16826F260063D540 /* NSCopying.h */,
+				718EEFFF16826F260063D540 /* NSLocking.h */,
+				718EF00016826F260063D540 /* NSObject.h */,
+				718EF00116826F260063D540 /* OperationQueueInvocationTrampoline.h */,
+				718EF00216826F260063D540 /* PEPServiceConfiguration.h */,
+				718EF00316826F260063D540 /* ThreadedInvocationTrampoline.h */,
+			);
+			path = AppSupport;
+			sourceTree = "<group>";
+		};
+		71907DAF16C9DD8300AE4F83 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				71907DB016C9DD8300AE4F83 /* Applications */,
+				71907DB116C9DD8300AE4F83 /* DEBIAN */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		71907DB016C9DD8300AE4F83 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		71907DB116C9DD8300AE4F83 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				71907DB216C9DD8300AE4F83 /* control */,
+			);
+			path = DEBIAN;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +250,8 @@
 				7173F14B164F671B00F2350A /* Sources */,
 				7173F14C164F671B00F2350A /* Frameworks */,
 				7173F14D164F671B00F2350A /* Resources */,
-				7173F20D164F6DAB00F2350A /* ShellScript */,
+				718EAED716C700ED0034B963 /* ShellScript */,
+				71EA015E16C4C43700FFF797 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -161,7 +268,7 @@
 		7173F12C164F666400F2350A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 7173F12F164F666400F2350A /* Build configuration list for PBXProject "SynergyClient" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -187,14 +294,14 @@
 			files = (
 				7173F205164F6AF000F2350A /* Icon-57.png in Resources */,
 				7173F206164F6AF000F2350A /* Icon-72.png in Resources */,
-				71F80C3A165B6189000546F0 /* Settings.bundle in Resources */,
+				71EA015D16C4C16C00FFF797 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7173F20D164F6DAB00F2350A /* ShellScript */ = {
+		718EAED716C700ED0034B963 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,8 +312,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
-			showEnvVarsInLog = 0;
+			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"ch.ringwald.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi\n";
+		};
+		71EA015E16C4C43700FFF797 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#setup some options\nset -x\nexport DEVICE_NAME=iphonelocal\nexport DEVICE_TUNNEL_PORT=2022\n\nDEB_DIR=\"${BUILT_PRODUCTS_DIR}/_${PROJECT_NAME}_\"\nINFO_PLIST=\"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Info.plist\"\n\nPRODUCT_VER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${INFO_PLIST}\")\nPRODUCT_BUILD=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFO_PLIST}\")\nDEB_NAME=\"isynergyclient_${PRODUCT_VER}-${PRODUCT_BUILD}_rotation+keyboard.deb\"\n\n#Setup deb directory\nrm -rf \"${DEB_DIR}\"\nmkdir -p \"${DEB_DIR}\"\n\n#Copy layout (with control file) and position files\ncp -Rv \"./layout/\" \"${DEB_DIR}\"\ncp -Rv \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\" \"${DEB_DIR}/Applications/${WRAPPER_NAME}\"\n\n#Build package\n/opt/local/bin/dpkg-deb -b \"${DEB_DIR}/\" \"${BUILT_PRODUCTS_DIR}/${DEB_NAME}\"\n\n#copy deb package over to device home directory\nscp -P ${DEVICE_TUNNEL_PORT} \"${BUILT_PRODUCTS_DIR}/${DEB_NAME}\" root@${DEVICE_NAME}:\"${DEB_NAME}\"\n\n#install package on device\nssh -p ${DEVICE_TUNNEL_PORT} root@${DEVICE_NAME} dpkg -i '~'/${DEB_NAME}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -234,6 +353,7 @@
 					armv6,
 					armv7,
 				);
+				GCC_THUMB_SUPPORT = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -245,6 +365,7 @@
 					armv6,
 					armv7,
 				);
+				GCC_THUMB_SUPPORT = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -253,14 +374,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = armv6;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/XCode 4.4.1/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -282,10 +405,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Resources\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Desktop\"",
+					"\"$(SRCROOT)/../lib/hid-support/libhidsupport/obj\"",
+					"\"$(SRCROOT)/SynergyClient\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -294,14 +422,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = armv6;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/XCode 4.4.1/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -316,12 +446,17 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Resources\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Desktop\"",
+					"\"$(SRCROOT)/../lib/hid-support/libhidsupport/obj\"",
+					"\"$(SRCROOT)/SynergyClient\"",
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

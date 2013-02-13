@@ -34,8 +34,9 @@
 #import "ConfigurationViewController.h"
 #import "SynergyClient.h"
 #import "BackgroundApplication.h"
+#import "AppSupport/CPDistributedMessagingCenter.h"
 
-#define VERSION "0.8"
+#define VERSION "0.9-2"
 
 @implementation AppDelegate
 
@@ -45,8 +46,25 @@
 @synthesize configViewController;
 @synthesize synergyClient;
 
+
+static AppDelegate *_instance;
+
++ (AppDelegate *)sharedInstance
+{
+    return _instance;
+}
+
+- (int)getOrientation
+{
+    return _orientation;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
+    //setup shared instance
+    if (_instance == nil)
+        _instance = self;
+    
 	// create config view controller
 	configViewController = [[ConfigurationViewController alloc] initWithStyle:UITableViewStyleGrouped];
 	[configViewController setTitle:[NSString stringWithFormat:@"iSynergyClient %@", @VERSION]];
@@ -66,28 +84,72 @@
 	
     //saiyen
     //Detect orientation change
+    /*
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detectOrientation) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
+     */
     //saiyen
+     
+    //register for distributed messages from sixaxis.dylib
+    CPDistributedMessagingCenter *messagingCenter;
+    // Center name must be unique, recommend using application identifier.
+    messagingCenter = [CPDistributedMessagingCenter centerNamed:@"com.northoverby.orientationnotification"];
+    [messagingCenter runServerOnCurrentThread];
+    
+   // Register Message Handlers
+    [messagingCenter registerForMessageName:@"interfaceOrientationChanged" target:self
+                                   selector:@selector(handleDylibMessageOrientationChanged:withUserInfo:)];
+
     
 	return YES;
 }
 
+- (NSDictionary *)handleDylibMessageOrientationChanged:(NSString *)name withUserInfo:(NSDictionary *)userinfo
+{
+    _orientation = [(NSNumber *)[userinfo objectForKey:@"interfaceOrientation"] intValue];
+    NSLog(@"Received dylib message orientation changed");
+    [self updateForOrientation];
+    
+    return nil;
+}
+
+-(void)updateForOrientation
+{
+    UIScreen *screen = [UIScreen mainScreen];
+    CGRect fullScreenRect = screen.bounds;
+    
+    // detect changes where device is oriented landscape or portrait
+    if (UIInterfaceOrientationIsLandscape(_orientation))
+    {
+        CGRect temp;
+        temp.size.width = fullScreenRect.size.height;
+        temp.size.height = fullScreenRect.size.width;
+        fullScreenRect = temp;
+    }
+    
+	[self.synergyClient setScreenWidth:fullScreenRect.size.width andHeight:fullScreenRect.size.height];
+    [self.synergyClient sendResetOptionsMessage];
+}
+
 //saiyen
+/*
 -(void)detectOrientation{
     UIScreen *screen = [UIScreen mainScreen];
-    CGRect fullScreenRect = screen.bounds; //implicitly in Portrait orientation.        
+    CGRect fullScreenRect = screen.bounds; //implicitly in Portrait orientation.
     
-    if (UIInterfaceOrientationIsLandscape([[UIDevice currentDevice] orientation])) 
+    // detect changes where device is oriented landscape or portrait
+    if (UIInterfaceOrientationIsLandscape([[UIDevice currentDevice] orientation]))
     {
         CGRect temp;
         temp.size.width = fullScreenRect.size.height;
         temp.size.height = fullScreenRect.size.width;
         fullScreenRect = temp;      
     }
+
 	[self.synergyClient setScreenWidth:fullScreenRect.size.width andHeight:fullScreenRect.size.height];
     [self.synergyClient sendResetOptionsMessage];
 }
+*/
 //saiyen
 
 - (void)applicationWillTerminate:(UIApplication *)application{
@@ -96,10 +158,6 @@
     [self.synergyClient deactivateMouse];
 }
 
-- (void)dealloc {
-    [window release];
-    [super dealloc];
-}
 
 
 @end
