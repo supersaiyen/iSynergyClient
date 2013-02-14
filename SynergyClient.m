@@ -589,8 +589,9 @@ static void socketDataCallback (CFSocketRef s,
                 break;
         }
         //NSLog(@"DOWN %u, %u, %u", a1, a2, a3);
-        //CMD+H = home key
-        if(a1 == 104 && a2 == 16 &&  [self homeButtonHotkey]){
+        //Shift+apple+H = home key
+        //HWButtonHome
+        if(a1 == 72 && a3 == 5 &&  [self homeButtonHotkey]){
             hid_inject_button_down(HWButtonHome);
             hid_inject_button_up(HWButtonHome);
             return;

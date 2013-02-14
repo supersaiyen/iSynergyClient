@@ -201,7 +201,7 @@ NSString *keyAutoConnect = @"AutoConnect";
 		NSString * helpTexts[] = {
 			@"IP address of Synergy server, either as dot notation like 192.168.3.2 or server.home.com",
 			@"Client name as configured on server, leave empty for local hostname",
-            @"Use Command + H to simulate pressing the Home button?",
+            @"Use Command + Shift + H to simulate pressing the Home button?",
 			@"Start/stop connection to server",
 			@"Current status, indicates if connection was established successfully",
 			@"To enter text, the BTstack Keyboard package is required"
