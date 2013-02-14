@@ -90,9 +90,9 @@ static AppDelegate *_instance;
      */
     //saiyen
      
-    //register for distributed messages from sixaxis.dylib
+    //register for distributed messages from orientationnotification.dylib
     CPDistributedMessagingCenter *messagingCenter;
-    // Center name must be unique, recommend using application identifier.
+    // Center name must be globally unique
     messagingCenter = [CPDistributedMessagingCenter centerNamed:@"com.northoverby.orientationnotification"];
     [messagingCenter runServerOnCurrentThread];
     
@@ -107,7 +107,7 @@ static AppDelegate *_instance;
 - (NSDictionary *)handleDylibMessageOrientationChanged:(NSString *)name withUserInfo:(NSDictionary *)userinfo
 {
     _orientation = [(NSNumber *)[userinfo objectForKey:@"interfaceOrientation"] intValue];
-    NSLog(@"Received dylib message orientation changed");
+    NSLog(@"Received orientationnotification.dylib message orientation changed");
     [self updateForOrientation];
     
     return nil;
