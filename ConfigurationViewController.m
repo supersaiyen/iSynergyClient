@@ -98,6 +98,14 @@ NSString *keyAutoConnect = @"AutoConnect";
     return YES;
 }
 
+//iOS 6 Orientation fix.
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
+-(BOOL)shouldAutorotate{
+    return YES;
+}
+
 #pragma mark -
 #pragma mark Table view data source
 
@@ -339,6 +347,7 @@ NSString *keyAutoConnect = @"AutoConnect";
         [[self activeSwitch] setOn:YES animated:NO];
         [self switchToggled];
     }
+    [self.tableView reloadData];
 }
 
 

@@ -33,6 +33,7 @@
 #import "mouse_msgs.h"
 #import "ConfigurationViewController.h"
 #import "SynergyClient.h"
+#import "SynergyNavigationController.h"
 #import "BackgroundApplication.h"
 #import "AppSupport/CPDistributedMessagingCenter.h"
 
@@ -73,6 +74,7 @@ static AppDelegate *_instance;
 	navController = [[UINavigationController alloc] initWithRootViewController:configViewController];
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	[window addSubview:navController.view];
+    [window setRootViewController:navController];
 	[window makeKeyAndVisible];
 
 	self.synergyClient = [[SynergyClient alloc] init];
@@ -99,15 +101,17 @@ static AppDelegate *_instance;
    // Register Message Handlers
     [messagingCenter registerForMessageName:@"interfaceOrientationChanged" target:self
                                    selector:@selector(handleDylibMessageOrientationChanged:withUserInfo:)];
-
     
-	return YES;
+    //initial orientation
+    _orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    return YES;
 }
 
 - (NSDictionary *)handleDylibMessageOrientationChanged:(NSString *)name withUserInfo:(NSDictionary *)userinfo
 {
     _orientation = [(NSNumber *)[userinfo objectForKey:@"interfaceOrientation"] intValue];
-    NSLog(@"Received orientationnotification.dylib message orientation changed");
+    NSLog(@"Received orientationnotification.dylib message orientation changed %u", _orientation);
     [self updateForOrientation];
     
     return nil;
