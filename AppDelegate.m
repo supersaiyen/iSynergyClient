@@ -33,7 +33,6 @@
 #import "mouse_msgs.h"
 #import "ConfigurationViewController.h"
 #import "SynergyClient.h"
-#import "SynergyNavigationController.h"
 #import "BackgroundApplication.h"
 #import "AppSupport/CPDistributedMessagingCenter.h"
 
